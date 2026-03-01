@@ -1,0 +1,6 @@
+function reverseStr(str){
+    const reverseStr=str.split('').reverse().join('');
+    return reverseStr;
+}
+
+console.log(reverseStr('Please reverse me!'));
