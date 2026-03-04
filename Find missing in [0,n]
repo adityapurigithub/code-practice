@@ -1,0 +1,37 @@
+
+// Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
+// function findMissingNum(arr){
+//   const sortedArr=arr.sort((a,b)=>a-b);
+//   console.log(sortedArr);
+  
+//   for(let i=0;i<sortedArr.length;i++){
+//     if(sortedArr[i]!=i){
+//       return i;
+//     }  
+//   }
+//   return 'Nothing is Missing!!'
+
+  
+// }
+
+// console.log(findMissingNum([0,1,4,2,6,3,5,8,7,9,10,12]));
+
+
+
+// CLEAN SOLUTION---------------->
+
+function findMissingNum(arr){
+ const n=arr.length;
+ 
+ const expectedSum=n*(n+1)/2;
+ 
+ const actualSum=arr.reduce((cal,curr)=>cal+curr,0);
+ 
+ if(expectedSum===actualSum) return 'No missing element';
+ 
+ return expectedSum-actualSum;
+
+  
+}
+
+console.log(findMissingNum([3,4,2,1]));
