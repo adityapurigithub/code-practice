@@ -1,0 +1,60 @@
+/*
+Problem: Given a string s, reverse only all the vowels in the string and return it. The vowels are 'a', 'e', 'i', 'o', and 'u', and they can appear in both lower and upper cases, more than once.
+
+Example: reverseVowels("hello") returns "holle". reverseVowels("leetcode") returns "leotcede".
+*/
+
+const vowels = "aeiouAEIOU";
+  
+function reverserTheVowelInString(str){
+  const vowelArr=[];
+  let result='';
+  
+  
+  for(let char of str){
+    if(vowels.includes(char)){
+      vowelArr.push(char);
+    }
+  }
+
+  vowelArr.reverse();
+
+  for(let i=0;i<str.length;i++){
+    if(vowels.includes(str[i])){
+      result += vowelArr.shift();
+    }else{
+      result += str[i];
+    }
+  }
+
+  return result;
+}
+
+console.log(reverserTheVowelInString('LeEtCoDe'));
+
+// using 2 pointers
+
+function reverseVowels(str){
+  const strArr=str.split('');
+  
+  let left=0;
+  let right=str.length-1;
+  
+  while(left<right){
+    if(vowels.includes(strArr[left]) && vowels.includes(strArr[right])){
+        let temp=strArr[left];
+        strArr[left]=strArr[right];
+        strArr[right]=temp;
+        left++;
+        right--;
+    }else if(!vowels.includes(strArr[left])){
+      left++;
+    }else{
+      right--;
+    }
+    
+  }
+  return strArr.join('');
+}
+
+console.log(reverseVowels('Array Buffer'));
