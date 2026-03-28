@@ -1,0 +1,21 @@
+(function firstNonRepeatingChar(arr=[5,1,0,1,2,0,4,7]){
+  const map=new Map();
+  
+  for(let i=0;i<arr.length;i++){
+    if(map.has(arr[i])){
+      map.set(arr[i],map.get(arr[i])+1);
+    }else{
+      map.set(arr[i],1);
+    }
+  }
+  
+  for(let [key,val] of map){
+    if(val===1){  // for repeating -- val will be > 1
+     console.log(key);  
+     break;  // or return key
+    }
+  }
+  
+  
+  console.log()
+})();
