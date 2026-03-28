@@ -1,0 +1,21 @@
+//Sliding window Q
+(function maxSumSubArr(arr=[5,2,-1,0,3],k=3){
+  
+  let maxSum=0; 
+  let currSum=0;   
+  let currWindow=k-1;
+  
+  for(let i=0;i<arr.length;i++){
+    for(let j=i;j<=currWindow;j++){
+      currSum+=arr[j];
+    }
+    if(currSum>maxSum) {
+      maxSum=currSum
+    };
+    
+    currWindow++;
+    currSum=0;
+  }
+  
+  console.log(maxSum);
+})();
