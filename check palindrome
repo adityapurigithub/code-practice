@@ -3,3 +3,27 @@ function isValidPalindrome(str1,str2){
 }
 
 console.log(isValidPalindrome('car','rac'));
+
+// using 2 pointers
+
+console.log((function isPalindrom(str="A man, a plan, a canal: Panama"){
+
+  const input=str.replace(/[\W_]/g, "").toLowerCase();  // clean the string
+  
+  console.log(input);
+  
+
+  let left=0;
+  let right=input.length-1;
+  
+  // a b c d b a 
+  
+  while(left<right){   
+    if(input[left]!==input[right]){
+      return false
+    }
+    left++;
+    right--;
+  }
+  return true;
+})())
